@@ -1,0 +1,11 @@
+<!-- ads/templates/ads/create_ad.html -->
+{% extends 'base.html' %}
+{% block title %}Создать объявление{% endblock %}
+{% block content %}
+<h1>Создать объявление</h1>
+<form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Создать</button>
+</form>
+{% endblock %}

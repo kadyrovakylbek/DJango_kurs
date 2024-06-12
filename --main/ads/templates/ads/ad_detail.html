@@ -1,0 +1,16 @@
+<!-- ads/templates/ads/ad_detail.html -->
+{% extends 'base.html' %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+<div class="card mb-4">
+    <img src="{{ ad.image.url }}" class="card-img-top" alt="{{ ad.title }}">
+    <div class="card-body">
+        <h1 class="card-title">{{ ad.title }}</h1>
+        <p class="card-text">{{ ad.description }}</p>
+        <p class="card-text">Цена: ${{ ad.price }}</p>
+        <p class="card-text">Контакт: {{ ad.contact }}</p>
+        <p class="card-text">Дата создания: {{ ad.created_at }}</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Назад</a>
+    </div>
+</div>
+{% endblock %}

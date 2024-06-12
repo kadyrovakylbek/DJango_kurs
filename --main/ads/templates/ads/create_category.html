@@ -1,0 +1,11 @@
+<!-- ads/templates/ads/create_category.html -->
+{% extends 'base.html' %}
+{% block title %}Создать категорию{% endblock %}
+{% block content %}
+<h1>Создать категорию</h1>
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Создать</button>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!-- ads/templates/ads/home.html -->
+{% extends 'base.html' %}
+{% block title %}Все объявления{% endblock %}
+{% block content %}
+<h1>Категории</h1>
+<ul class="list-group mb-4">
+    {% for category in categories %}
+        <li class="list-group-item"><a href="{% url 'category_ads' category.pk %}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+<h1>Объявления</h1>
+<div class="row">
+    {% for ad in ads %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img class="card-img-top" src="{{ ad.image.url }}" alt="{{ ad.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ad.title }}</h5>
+                    <p class="card-text">{{ ad.description|truncatewords:20 }}</p>
+                    <p class="card-text">Цена: ${{ ad.price }}</p>
+                    <a href="{% url 'ad_detail' ad.pk %}" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
